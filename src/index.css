@@ -62,7 +62,8 @@ input {
   background-color: #e0e0e0;
 }
 
-p {
+.result-country {
+  width: 100%;
   margin-top: 10px;
   font-size: 16px;
   color: #fff;
