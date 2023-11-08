@@ -159,7 +159,9 @@ const CountrySelector = () => {
         ))}
       </div>
       {selectedCountry && (
-        <p>Selected Country: {selectedCountry.name.common}</p>
+        <p>
+          Selected Country: <h1>{selectedCountry.name.common}</h1>
+        </p>
       )}
     </div>
   );
