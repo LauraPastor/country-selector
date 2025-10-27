@@ -40,12 +40,12 @@ input {
   position: absolute;
   width: 325px;
   max-height: 200px;
-  overflow-y: auto;
+  overflow-y: scroll;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #fff;
-  z-index: 1;
+  z-index: 3;
 }
 
 .result-item {
@@ -63,6 +63,7 @@ input {
 }
 
 .result-country {
+  position: relative;
   width: 100%;
   margin-top: 10px;
   font-size: 16px;
@@ -71,4 +72,46 @@ input {
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  /* ensures flag stays within borders */
+}
+
+.result-country h1 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+
+/* Flag as faded background */
+.country-flag-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  z-index: 1;
+  filter: blur(1px) brightness(0.7);
+  /* subtle aesthetic touch */
+  animation: fadeInFlag 2s ease forwards;
+  animation-delay: 1s;
+  /* start after 1 second */
+  pointer-events: none;
+  /* avoid interfering with clicks */
+  border-radius: 8px;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeInFlag {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  to {
+    opacity: 0.25;
+    /* not full opacity */
+    transform: scale(1);
+  }
 }
